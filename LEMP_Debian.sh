@@ -9,13 +9,18 @@ read condicion
   case $condicion in
      1)
         echo "Muy bien, te haremos super usuario"
-        printf 'Escribe tu nombre de usuario'
+        printf 'Escribe tu nombre de usuario\n'
         read usuario
         printf "\n"
 echo "$usuario ALL=(ALL) NOPASSWD:ALL"  >> /etc/sudoers
      ;;
      2)
-        echo "dos"
+        echo "Muy bien, añadiremos los repositorios de PHP 8.0"
+sudo apt update
+sudo apt install -y curl wget gnupg2 ca-certificates lsb-release apt-transport-https
+wget https://packages.sury.org/php/apt.gpg
+sudo apt-key add apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php8.list
      ;;
      3)
      echo 'tres'
@@ -25,11 +30,7 @@ echo "$usuario ALL=(ALL) NOPASSWD:ALL"  >> /etc/sudoers
      ;;
   esac
 
-#sudo apt update
-#sudo apt install -y curl wget gnupg2 ca-certificates lsb-release apt-transport-https
-#wget https://packages.sury.org/php/apt.gpg
-#sudo apt-key add apt.gpg
-#echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php8.list
+
 #sudo apt install -y php8.0 php8.0-cli php8.0-common php8.0-fpm php8.0-mysql
 #sudo apt install nginx mariadb-client 
 

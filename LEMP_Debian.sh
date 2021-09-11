@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "Por favor introduzca un valor:"
 printf "1- Habilitar sudo para tu usuario\n"
-printf "2- Habilitar php8.0\n"
-printf "3- Instalar Nginx, PHP, MySQL\n"
-printf "4- Salir\n"
+printf "2- Habilitar PHP 8.0\n"
+printf "3- Instalar PHP 8.0\n"
+printf "4- Instalar Nginx y MySQL\n"
 printf "\n"
 read condicion
   case $condicion in
@@ -24,6 +24,12 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /et
      ;;
      3)
      echo 'tres'
+     sudo apt install -y php8.0 php8.0-cli php8.0-common php8.0-fpm php8.0-mysql
+
+     ;;
+     4)
+   sudo apt install -y nginx mariadb-client
+
      ;;
      *)
         echo "Hasta pronto"
@@ -31,8 +37,8 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /et
   esac
 
 
-#sudo apt install -y php8.0 php8.0-cli php8.0-common php8.0-fpm php8.0-mysql
-#sudo apt install nginx mariadb-client 
+
+
 
 
 #echo "server {

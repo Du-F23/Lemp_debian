@@ -11,7 +11,8 @@ read condicion
         echo "Muy bien, te haremos super usuario"
         printf 'Escribe tu nombre de usuario'
         read usuario
-echo "username=$usuario ALL=(ALL) NOPASSWD:ALL"  >> /etc/sudoers
+        printf "\n"
+echo "$usuario ALL=(ALL) NOPASSWD:ALL"  >> /etc/sudoers
      ;;
      2)
         echo "dos"

@@ -16,7 +16,6 @@ echo "$usuario ALL=(ALL) NOPASSWD:ALL"  >> /etc/sudoers
      ;;
      2)
         echo "Muy bien, añadiremos los repositorios de PHP 8.0"
-sudo apt update
 sudo apt install -y curl wget gnupg2 ca-certificates lsb-release apt-transport-https
 wget https://packages.sury.org/php/apt.gpg
 sudo apt-key add apt.gpg
@@ -27,15 +26,9 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /et
      sudo apt install -y php8.0 php8.0-cli php8.0-common php8.0-fpm php8.0-mysql
      ;;
      4)
-   sudo apt install -y nginx mariadb-server php8.0-json php8.0-mbstring php8.0-xml wget curl
+   sudo apt install -y nginx mariadb-server php8.0-mbstring php8.0-xml wget curl
    sudo mysql_secure_installation
    ;;
-     5)
-    wget https://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-all-languages.tar.gz
-    tar -zxvf phpMyAdmin-5.1.1-all-languages.tar.gz
-    sudo mv phpMyAdmin-5.1.1-all-languages /usr/share/phpMyAdmin
-    sudo cp -pr /usr/share/phpMyAdmin/config.sample.inc.php /usr/share/phpMyAdmin/config.inc.php
-     ;;
      *)
         echo "Hasta pronto"
      ;;
